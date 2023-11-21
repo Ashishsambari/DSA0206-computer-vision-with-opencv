@@ -1,0 +1,18 @@
+import cv2
+import numpy as np
+
+image = cv2.imread(r"D:\wallpapers\blob.jpeg", cv2.IMREAD_GRAYSCALE)
+
+if image is None:
+    print("Error: Could no5t load the image.")
+    exit()
+
+kernel_size = 15
+kernel = np.ones((kernel_size, kernel_size), np.uint8)
+
+blackhat = cv2.morphologyEx(image, cv2.MORPH_BLACKHAT, kernel)
+
+cv2.imshow('Original', image)
+cv2.imshow('Black Hat', blackhat)
+cv2.waitKey(0)
+cv2.destroy
