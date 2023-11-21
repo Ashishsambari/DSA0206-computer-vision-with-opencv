@@ -1,0 +1,14 @@
+import cv2
+
+img = cv2.imread(r"D:\wallpapers\blob.jpeg")
+
+watermark = cv2.imread(r"C:\Users\ashis\Downloads\wallpapersden.com_avengers-endgame-4k-background_1920x1080.jfif")
+
+watermark = cv2.resize(watermark, (img.shape[1], img.shape[0]))
+
+blended = cv2.addWeighted(watermark, 0.5, img, 0.5, 0)
+
+cv2.imwrite('blended.jpg', blended)
+cv2.imshow('Blended Image', blended)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
